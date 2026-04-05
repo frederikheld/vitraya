@@ -27,24 +27,15 @@ My own [Home Assistant](https://www.home-assistant.io/) setup.
 * [How to install Home Assistant via docker compose](https://www.home-assistant.io/installation/alternative/#docker-compose)
 * [RaspAP](https://raspap.com/) as wireless router / network manager. Runs in Docker, but needs extended access (which makes sense, because it needs access to the network level of the OS). RaspAP can be [deployed in a Docker container](https://docs.raspap.com/get-started/docker/?h=docker#prerequisites).
 
-## Caveats
+## Setup
 
-The RasPi 4's internal WiFi does not support 5 GHz. If your router uses the same SSID for 2.4 GHz and 5 GHz networks, the RasPi 4 will fail to connect. There's a workaround:
+* configure WiFi, SSH and login in RasPi Image, then flash SD card
+* boot for the first time, run apt update and `sudo raspi-config`
+* [install Docker](https://docs.docker.com/engine/install/debian/)
+* intall git
+* clone repo
+* run `docker compose up`
 
-1. configure WiFi credentials in RasPi Imager
-2. before first boot, create the file `/etc/wpa_supplicant/wpa_supplicant.conf` on the "rootfs" partition of the SD card an add the following:
+## Improve Docker Compose Fil
 
-    ```
-    ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
-    update_config=1
-    conuntry=DE
-
-    network={
-        ssid="<your-wifi-ssid>"
-        psk="<your-wifi-secret>"
-        bssid="<your-wifi-bssid>"
-        key_mgmt=WPA-PSK
-    }
-    ```
-
-    The important part is the BSSID, which is the MAC address of your router's 2.4-GHz-WiFi-adapter. You can find it in your router's settings.
+* [Home Assistant](https://www.home-assistant.io/installation/raspberrypi-other)
