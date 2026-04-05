@@ -27,15 +27,25 @@ My own [Home Assistant](https://www.home-assistant.io/) setup.
 * [How to install Home Assistant via docker compose](https://www.home-assistant.io/installation/alternative/#docker-compose)
 * [RaspAP](https://raspap.com/) as wireless router / network manager. Runs in Docker, but needs extended access (which makes sense, because it needs access to the network level of the OS). RaspAP can be [deployed in a Docker container](https://docs.raspap.com/get-started/docker/?h=docker#prerequisites).
 
-## Setup
-
-* configure WiFi, SSH and login in RasPi Image, then flash SD card
-* boot for the first time, run apt update and `sudo raspi-config`
-* [install Docker](https://docs.docker.com/engine/install/debian/)
-* intall git
-* clone repo
-* run `docker compose up`
-
-## Improve Docker Compose Fil
+## Improve Docker Compose File
 
 * [Home Assistant](https://www.home-assistant.io/installation/raspberrypi-other)
+* [RaspAP Docker](https://github.com/RaspAP/raspap-docker)
+
+## Setup & Run
+
+1. configure WiFi, SSH and login in RasPi Image, then flash SD card
+1. boot for the first time, ssh into the raspi
+1. run apt update and `$ sudo raspi-config`
+1. [install Docker](https://docs.docker.com/engine/install/debian/)
+1. intall git (should already be installed on Raspberry Pi OS)
+1. clone repo
+1. start containers with `$ docker compose up`
+
+* Home Assistant will be available on port 8123
+* RaspAP will be available on port 8081
+
+## Update
+
+1. run `$ git pull`
+1. run `$ docker compose down`, then `$ docker compose up`
