@@ -41,10 +41,19 @@ My own [Home Assistant](https://www.home-assistant.io/) setup.
 1. intall git (should already be installed on Raspberry Pi OS)
 1. clone repo
 1. copy `.env.template` to `.env` and fill in the values
+1. setup udev rules (see [next section](#setup-udev-rules))
 1. start containers with `$ sudo docker compose up`
 
 * Home Assistant will be available on port 8123
 * RaspAP will be available on port 8081
+
+### Setup UDEV Rules
+
+1. ssh or log into raspi.
+1. run `$ ifconfig`
+1. there should be 2 wifi interfaces: "wifi1" (the internal one) and one with a more cryptic name (the usb dongle). Note the MAC addresses.
+1. fill in the mac addresses in `src/10-wifi-names.rules`. "wifi0" should be the internal wifi, "wifi1" should be the usb dongle.
+1. run the `setup.sh` script
 
 ## Update
 

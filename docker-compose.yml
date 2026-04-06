@@ -29,6 +29,8 @@ services:
       - RASPAP_WEBGUI_USER=${RASPAP_WEBGUI_USER}
       - RASPAP_WEBGUI_PASS=${RASPAP_WEBGUI_PASS}
       - RASPAP_WEBGUI_PORT=8081
+      - RASPAP_CLIENT_INTERFACE=wlan0
+      - RASPAP_AP_INTERFACE=wlan1
     cap_add:
       - SYS_ADMIN
     volumes:
