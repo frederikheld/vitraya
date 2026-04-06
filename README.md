@@ -40,7 +40,8 @@ My own [Home Assistant](https://www.home-assistant.io/) setup.
 1. [install Docker](https://docs.docker.com/engine/install/debian/)
 1. intall git (should already be installed on Raspberry Pi OS)
 1. clone repo
-1. start containers with `$ docker compose up`
+1. copy `.env.template` to `.env` and fill in the values
+1. start containers with `$ sudo docker compose up`
 
 * Home Assistant will be available on port 8123
 * RaspAP will be available on port 8081
@@ -48,4 +49,4 @@ My own [Home Assistant](https://www.home-assistant.io/) setup.
 ## Update
 
 1. run `$ git pull`
-1. run `$ docker compose down`, then `$ docker compose up`
+1. run `$ sudo docker compose down`, then `$ sudo docker compose up`
